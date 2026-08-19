@@ -207,3 +207,26 @@ body {
   .nav-back { width: 44px; height: 44px; }
   .nav-home { height: 44px; padding: 0 18px; }
 }
+
+/* ---------- language switcher ---------- */
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.lang {
+  display: flex; align-items: center; gap: 7px;
+  padding: 6px 12px 6px 13px; border-radius: 999px; cursor: pointer;
+  background: var(--card); border: 1px solid var(--card-line);
+  transition: border-color .2s, background .2s;
+}
+.lang:hover { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.09); }
+.lang-icon { font-size: 14px; line-height: 1; }
+.lang select {
+  appearance: none; cursor: pointer; padding-right: 4px;
+  background: transparent; border: 0; outline: none;
+  color: var(--text); font: inherit; font-size: 13px; font-weight: 700;
+}
+.lang select option { background: var(--bg-2); color: var(--text); }
+
+@media (max-width: 560px) {
+  .fun-pill { display: none; }
+}
+
+.frame-loader i { font-style: normal; }

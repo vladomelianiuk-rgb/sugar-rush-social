@@ -20,6 +20,16 @@ Then open http://localhost:4000
 - Games open in an overlay iframe against Pragmatic Play's public demo build
 - A "recently played" list, kept in `localStorage`
 - A webview-style back/home bar floating over the game, so there is always a way out
+- Seven UI languages (English, Ukrainian, Spanish, Portuguese, German, Polish,
+  Turkish) behind a switcher in the header
+
+English is the default on every first visit; an explicit choice is remembered in
+`localStorage`. The browser's own language is deliberately not sniffed, so the
+landing language does not depend on whose browser opened the link.
+
+The chosen language is also passed to the game at launch. Codes are ISO 639-1 —
+Ukrainian is `uk`; the country-style `ua` is accepted but silently renders the
+game in English.
 
 Games are launched with `cur=FUN`, which makes them label the balance "FUN"
 rather than a real currency. Nothing inside the cross-origin frame can be

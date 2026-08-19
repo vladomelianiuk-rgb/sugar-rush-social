@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
@@ -17,49 +17,47 @@
       <span class="brand-mark">🍭</span>
       <span class="brand-name">Sugar Rush Social</span>
     </div>
-    <span class="fun-pill">Тільки для розваги</span>
+
+    <div class="topbar-right">
+      <span class="fun-pill" data-i18n="fun.pill"></span>
+      <label class="lang">
+        <span class="lang-icon" aria-hidden="true">🌐</span>
+        <select data-lang-select data-i18n-aria="lang.label"></select>
+      </label>
+    </div>
   </header>
 
   <main class="lobby">
     <section class="hero">
       <div class="hero-copy">
-        <span class="hero-kicker">Гра тижня</span>
+        <span class="hero-kicker" data-i18n="hero.kicker"></span>
         <h1 class="hero-title">Sweet&nbsp;Bonanza</h1>
-        <p class="hero-text">
-          Сітка 6×5, каскадні виграші та множники до 100x. Виграшні комбінації
-          зникають, нові символи падають зверху — і серія не зупиняється, поки
-          є виграші.
-        </p>
+        <p class="hero-text" data-i18n="hero.text"></p>
         <div class="hero-stats">
-          <div><b>6×5</b><span>Сітка</span></div>
-          <div><b>Каскади</b><span>Механіка</span></div>
-          <div><b>до 100x</b><span>Множники</span></div>
+          <div><b>6×5</b><span data-i18n="hero.stat.grid"></span></div>
+          <div><b data-i18n="hero.stat.cascades"></b><span data-i18n="hero.stat.mechanic"></span></div>
+          <div><b data-i18n="hero.stat.upto"></b><span data-i18n="hero.stat.multipliers"></span></div>
         </div>
-        <button class="play-btn" data-play="sweet-bonanza">Крутити</button>
+        <button class="play-btn" data-play="sweet-bonanza" data-i18n="hero.cta"></button>
       </div>
       <div class="hero-art" data-hero-art></div>
     </section>
 
     <section class="notice">
       <span class="notice-icon" aria-hidden="true">🎈</span>
-      <div>
-        <b>Це суто розважальний проєкт.</b>
-        Тут <b>немає гри на реальні гроші</b>: ні ставок, ні депозитів, ні
-        виведення, ні покупок. Ігри відкриваються в демонстраційному режимі
-        розробника — крути скільки завгодно, просто для задоволення.
-      </div>
+      <div><b data-i18n="notice.title"></b> <span data-i18n="notice.body"></span></div>
     </section>
 
     <div class="lobby-body">
       <section class="games">
-        <h2 class="section-title">Усі ігри</h2>
+        <h2 class="section-title" data-i18n="section.games"></h2>
         <div class="game-grid" data-games></div>
       </section>
 
       <aside class="side">
-        <h2 class="section-title">Нещодавно грали</h2>
+        <h2 class="section-title" data-i18n="section.recent"></h2>
         <ul class="recent" data-recent></ul>
-        <p class="recent-empty" data-recent-empty>Тут з'являться ігри, які ти відкривав.</p>
+        <p class="recent-empty" data-recent-empty data-i18n="recent.empty"></p>
       </aside>
     </div>
   </main>
@@ -68,29 +66,27 @@
     <div class="overlay-bar">
       <span class="overlay-title" data-game-title></span>
       <div class="overlay-actions">
-        <button data-fullscreen title="На весь екран">⛶</button>
-        <button data-close-game title="Закрити">✕</button>
+        <button data-fullscreen data-i18n-title="overlay.fullscreen">⛶</button>
+        <button data-close-game data-i18n-title="overlay.close">✕</button>
       </div>
     </div>
     <div class="overlay-frame">
-      <div class="frame-loader" data-frame-loader><span></span>Завантаження гри…</div>
+      <div class="frame-loader" data-frame-loader><span></span><i data-i18n="overlay.loading"></i></div>
       <iframe data-game-frame title="Game" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
-    <nav class="game-nav" aria-label="Навігація по грі">
-      <button class="nav-back" data-close-game aria-label="Назад до лоббі">
+    <nav class="game-nav" data-i18n-aria="nav.lobby">
+      <button class="nav-back" data-close-game data-i18n-aria="nav.back">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
       </button>
-      <button class="nav-home" data-close-game aria-label="До лоббі">
+      <button class="nav-home" data-close-game data-i18n-aria="nav.lobby">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M6 10v9h12v-9"/></svg>
-        <span>Лоббі</span>
+        <span data-i18n="nav.lobby"></span>
       </button>
     </nav>
   </div>
 
-  <footer class="footer">
-    Розважальний демонстраційний проєкт. Гра на реальні гроші відсутня.
-  </footer>
+  <footer class="footer" data-i18n="footer"></footer>
 
   <script src="app.js" type="module"></script>
 </body>

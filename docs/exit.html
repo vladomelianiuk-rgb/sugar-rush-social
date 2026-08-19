@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
-<title>Повернення в лоббі…</title>
+<title>Returning to the lobby…</title>
 <style>
   body {
     margin: 0; min-height: 100dvh; display: grid; place-items: center;
@@ -13,8 +13,14 @@
 </style>
 </head>
 <body>
-  <p>Повертаємось у лоббі…</p>
-  <script>
+  <p data-message>Returning to the lobby…</p>
+  <script type="module">
+    import { resolveLocale, translate } from './i18n.js';
+
+    const locale = resolveLocale();
+    document.documentElement.lang = locale;
+    document.querySelector('[data-message]').textContent = translate(locale, 'exit.returning');
+
     // The games' own "home" button navigates to the lobbyUrl we hand them at
     // launch. Pointing that at this page lets us catch the navigation: inside
     // the overlay we ask the lobby to close the game instead of nesting the
