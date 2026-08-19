@@ -151,9 +151,9 @@ body {
 .frame-loader span {
   width: 34px; height: 34px; border-radius: 50%;
   border: 3px solid rgba(255,255,255,.14); border-top-color: var(--pink);
-  animation: spin .8s linear infinite;
+  animation: rotate .8s linear infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes rotate { to { transform: rotate(360deg); } }
 
 /* ---------- footer ---------- */
 .footer {

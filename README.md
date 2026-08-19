@@ -1,8 +1,13 @@
 # Sugar Rush Social
 
-An entertainment-only game lobby. **There is no real-money play here**: no
-wagering, no deposits, no withdrawals, no purchases, and no virtual currency
-either. Games open in the developer's public demo mode — you spin purely for fun.
+An entertainment-only game shelf. **No real money is involved anywhere**: there
+is nothing to pay for, no money to take out, and no virtual currency either.
+Games open in the developer's public demo mode, purely for fun.
+
+The site's own copy deliberately avoids gambling vocabulary — no "bet", "win",
+"spin", "casino", "jackpot" or "lobby" — so that wrapping it in a webview app
+raises fewer questions during review. Text inside the game frame is the
+provider's and cannot be changed from here.
 
 Live: published from `docs/` via GitHub Pages.
 
