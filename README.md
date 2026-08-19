@@ -9,7 +9,10 @@ The site's own copy deliberately avoids gambling vocabulary — no "bet", "win",
 raises fewer questions during review. Text inside the game frame is the
 provider's and cannot be changed from here.
 
-Live: published from `docs/` via GitHub Pages.
+Live: <https://sweet-bonanza.stream> — published from `docs/` via GitHub Pages.
+The domain is registered at adm.tools; its A records point at GitHub's Pages IPs
+and `docs/CNAME` binds it on GitHub's side. HTTPS is a Let's Encrypt certificate
+issued automatically by GitHub.
 
 ## Run locally
 
