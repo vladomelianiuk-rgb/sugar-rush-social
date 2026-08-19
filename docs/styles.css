@@ -230,3 +230,14 @@ body {
 }
 
 .frame-loader i { font-style: normal; }
+
+/* Keeps the "just for fun" framing on screen while a game is open, since
+   nothing inside the game frame can be relabelled from here. */
+.overlay-bar { gap: 10px; }
+.overlay-bar .overlay-title { flex: none; }
+.overlay-pill { font-size: 11px; padding: 4px 10px; }
+.overlay-bar > .overlay-actions { margin-left: auto; }
+
+@media (max-width: 560px) {
+  .overlay-pill { display: inline-block; }
+}

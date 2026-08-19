@@ -124,8 +124,12 @@ document.addEventListener('click', (event) => {
   if (event.target.closest('[data-close-game]')) return closeGame();
 
   if (event.target.closest('[data-fullscreen]')) {
+    // Fullscreen the whole overlay, not just the frame: a fullscreen element
+    // hides everything outside its own subtree, and the way out lives in the
+    // nav bar. The iframe is denied fullscreen for the same reason — a game
+    // that seized the top layer would leave no way back.
     if (document.fullscreenElement) document.exitFullscreen();
-    else $('.overlay-frame').requestFullscreen?.();
+    else $('[data-game-overlay]').requestFullscreen?.();
   }
 });
 
