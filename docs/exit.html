@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Повернення в лоббі…</title>
+<style>
+  body {
+    margin: 0; min-height: 100dvh; display: grid; place-items: center;
+    background: #140a24; color: #b39ccd;
+    font: 15px/1.5 "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+</style>
+</head>
+<body>
+  <p>Повертаємось у лоббі…</p>
+  <script>
+    // The games' own "home" button navigates to the lobbyUrl we hand them at
+    // launch. Pointing that at this page lets us catch the navigation: inside
+    // the overlay we ask the lobby to close the game instead of nesting the
+    // whole site inside its own iframe.
+    if (window.parent !== window) {
+      parent.postMessage({ type: 'srs:exit-game' }, location.origin);
+    } else {
+      location.replace('./');
+    }
+  </script>
+</body>
+</html>

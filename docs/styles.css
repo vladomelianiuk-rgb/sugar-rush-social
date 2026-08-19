@@ -174,3 +174,36 @@ body {
 }
 
 .art-fallback { line-height: 1; }
+
+/* ---------- in-game navigation ----------
+   A floating bar over the frame, the way a webview wraps an embedded page.
+   Sits below the safe-area inset so it clears the phone's home indicator. */
+.game-nav {
+  position: absolute; z-index: 10;
+  left: 50%; transform: translateX(-50%);
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; gap: 12px;
+}
+.game-nav button {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  cursor: pointer; font: inherit; font-weight: 700; color: var(--text);
+  background: rgba(20, 10, 36, .82);
+  border: 1px solid rgba(255, 255, 255, .16);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, .5);
+  transition: transform .15s, background .2s, border-color .2s;
+}
+.game-nav button:hover { background: rgba(40, 22, 68, .92); border-color: rgba(255,255,255,.3); }
+.game-nav button:active { transform: scale(.94); }
+.game-nav svg {
+  width: 20px; height: 20px; fill: none;
+  stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.nav-back { width: 48px; height: 48px; border-radius: 50%; }
+.nav-home { height: 48px; padding: 0 22px; border-radius: 999px; font-size: 14px; }
+
+@media (max-width: 900px) {
+  .game-nav { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); gap: 10px; }
+  .nav-back { width: 44px; height: 44px; }
+  .nav-home { height: 44px; padding: 0 18px; }
+}

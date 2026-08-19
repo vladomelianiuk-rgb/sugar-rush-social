@@ -101,6 +101,15 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !$('[data-game-overlay]').hidden) closeGame();
 });
 
+/**
+ * A game's own home button navigates the frame to exit.html, which reports back
+ * here. Without this the lobby would end up rendered inside its own overlay.
+ */
+window.addEventListener('message', (event) => {
+  if (event.origin !== location.origin) return;
+  if (event.data?.type === 'srs:exit-game') closeGame();
+});
+
 renderHero();
 renderGames();
 renderRecent();

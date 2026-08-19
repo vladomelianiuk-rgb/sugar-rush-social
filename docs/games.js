@@ -13,6 +13,10 @@ const ART_BASE = 'https://common-static.ppgames.net/game_pic';
  * real currency symbol — the demo client renders whatever currency code it is
  * handed. Nothing inside the frame can be scripted from here, so this launch
  * parameter is the only lever over what the game displays.
+ *
+ * `lobbyUrl` must be the full page URL, not `location.origin`: the site lives
+ * under a path, and the origin alone is a dead link. It points at exit.html so
+ * the game's own home button lands somewhere that can close the overlay.
  */
 const FUN_CURRENCY = 'FUN';
 
@@ -39,7 +43,7 @@ export function launchUrl(game, { language = 'en', currency = FUN_CURRENCY } = {
     gameSymbol: game.symbol,
     websiteUrl: 'https://demogamesfree.pragmaticplay.net',
     jurisdictionID: '99',
-    lobbyUrl: location.origin,
+    lobbyUrl: new URL('exit.html', location.href).href,
   });
   return `${DEMO_BASE}?${params}`;
 }
