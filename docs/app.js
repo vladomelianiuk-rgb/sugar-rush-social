@@ -1,4 +1,4 @@
-import { GAMES, findGame, launchUrl } from './games.js';
+import { GAMES, findGame, launchUrl, artUrl } from './games.js';
 import { loadRecent, pushRecent } from './recent.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -9,7 +9,10 @@ function renderGames() {
   $('[data-games]').innerHTML = GAMES.map((game) => `
     <button class="game-card" data-play="${game.id}" style="--accent:${game.accent}">
       ${game.featured ? '<span class="featured-flag">HOT</span>' : ''}
-      <div class="game-thumb">${game.art}</div>
+      <div class="game-thumb">
+        <img src="${artUrl(game)}" alt="${game.title}" data-fallback="${game.art}"
+             width="325" height="234" loading="lazy">
+      </div>
       <div class="game-meta">
         <div class="game-name">${game.title}</div>
         <div class="game-tag">${game.tag}</div>
@@ -24,12 +27,32 @@ function renderRecent() {
   $('[data-recent]').innerHTML = games.map((game) => `
     <li>
       <button class="recent-item" data-play="${game.id}" style="--accent:${game.accent}">
-        <span class="recent-art">${game.art}</span>
+        <img class="recent-art" src="${artUrl(game, 'square/200')}" alt=""
+             data-fallback="${game.art}" width="200" height="200" loading="lazy">
         <span class="recent-name">${game.title}</span>
       </button>
     </li>
   `).join('');
 }
+
+function renderHero() {
+  const game = findGame('sweet-bonanza');
+  $('[data-hero-art]').innerHTML =
+    `<img src="${artUrl(game)}" alt="${game.title}" data-fallback="${game.art}" width="325" height="234">`;
+}
+
+/**
+ * Cover art comes from the provider's CDN, so a missing or blocked image must
+ * not leave a hole in the grid. `error` does not bubble, hence the capture.
+ */
+document.addEventListener('error', (event) => {
+  const img = event.target;
+  if (img.tagName !== 'IMG' || !img.dataset.fallback) return;
+  const fallback = document.createElement('span');
+  fallback.className = 'art-fallback';
+  fallback.textContent = img.dataset.fallback;
+  img.replaceWith(fallback);
+}, true);
 
 // --- game overlay -----------------------------------------------------------
 
@@ -78,5 +101,6 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !$('[data-game-overlay]').hidden) closeGame();
 });
 
+renderHero();
 renderGames();
 renderRecent();

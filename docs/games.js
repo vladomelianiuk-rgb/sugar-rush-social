@@ -2,10 +2,19 @@
  * Catalogue of Pragmatic Play demo builds. Every symbol below was verified
  * against the demo endpoint and resolves to the titled game.
  *
- * These load the publicly hosted *demo* client, which keeps its own internal
- * play-money balance. It cannot read or debit the coin balance this app tracks.
+ * Cover art is served from the provider's own CDN. Only two sizes exist:
+ * `rec/325` (325x234) and `square/200`.
  */
 const DEMO_BASE = 'https://demogamesfree.pragmaticplay.net/gs2c/openGame.do';
+const ART_BASE = 'https://common-static.ppgames.net/game_pic';
+
+/**
+ * Launching with `cur=FUN` makes the game label its balance "FUN" instead of a
+ * real currency symbol — the demo client renders whatever currency code it is
+ * handed. Nothing inside the frame can be scripted from here, so this launch
+ * parameter is the only lever over what the game displays.
+ */
+const FUN_CURRENCY = 'FUN';
 
 export const GAMES = [
   { id: 'sweet-bonanza',      symbol: 'vs20fruitsw',   title: 'Sweet Bonanza',          tag: 'Каскадні виграші', art: '🍭', accent: '#ff5fa2', featured: true },
@@ -20,7 +29,10 @@ export const GAMES = [
 
 export const findGame = (id) => GAMES.find((game) => game.id === id) ?? null;
 
-export function launchUrl(game, { language = 'en', currency = 'EUR' } = {}) {
+/** `size` is either 'rec/325' (wide) or 'square/200'. */
+export const artUrl = (game, size = 'rec/325') => `${ART_BASE}/${size}/${game.symbol}.png`;
+
+export function launchUrl(game, { language = 'en', currency = FUN_CURRENCY } = {}) {
   const params = new URLSearchParams({
     lang: language,
     cur: currency,
