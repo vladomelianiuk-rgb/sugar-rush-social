@@ -16,27 +16,12 @@
     <div class="brand">
       <span class="brand-mark">🍭</span>
       <span class="brand-name">Sugar Rush Social</span>
-      <span class="brand-badge">PLAY&nbsp;MONEY</span>
     </div>
-
-    <div class="topbar-right">
-      <div class="level" title="Рівень">
-        <span class="level-num" data-level>1</span>
-        <div class="level-bar"><i data-xp-fill style="width:0%"></i></div>
-      </div>
-      <button class="coins" data-open-store title="Магазин монет">
-        <span class="coin-icon">🪙</span>
-        <span class="coin-amount" data-coins>0</span>
-        <span class="coin-plus">+</span>
-      </button>
-      <button class="bonus-btn" data-claim-bonus hidden>
-        <span class="bonus-spark">🎁</span> Забрати бонус
-      </button>
-    </div>
+    <span class="fun-pill">Тільки для розваги</span>
   </header>
 
   <main class="lobby">
-    <section class="hero" data-hero hidden>
+    <section class="hero">
       <div class="hero-copy">
         <span class="hero-kicker">Гра тижня</span>
         <h1 class="hero-title">Sweet&nbsp;Bonanza</h1>
@@ -46,11 +31,11 @@
           є виграші.
         </p>
         <div class="hero-stats">
-          <div><b>96.51%</b><span>RTP</span></div>
-          <div><b>21 100x</b><span>Макс. виграш</span></div>
-          <div><b>Висока</b><span>Волатильність</span></div>
+          <div><b>6×5</b><span>Сітка</span></div>
+          <div><b>Каскади</b><span>Механіка</span></div>
+          <div><b>до 100x</b><span>Множники</span></div>
         </div>
-        <button class="play-btn" data-play="sweet-bonanza">Грати безкоштовно</button>
+        <button class="play-btn" data-play="sweet-bonanza">Крутити</button>
       </div>
       <div class="hero-art" aria-hidden="true">
         <span style="--d:0s">🍓</span><span style="--d:.4s">🍇</span><span style="--d:.8s">🍉</span>
@@ -58,24 +43,30 @@
       </div>
     </section>
 
+    <section class="notice">
+      <span class="notice-icon" aria-hidden="true">🎈</span>
+      <div>
+        <b>Це суто розважальний проєкт.</b>
+        Тут <b>немає гри на реальні гроші</b>: ні ставок, ні депозитів, ні
+        виведення, ні покупок. Ігри відкриваються в демонстраційному режимі
+        розробника — крути скільки завгодно, просто для задоволення.
+      </div>
+    </section>
+
     <div class="lobby-body">
       <section class="games">
         <h2 class="section-title">Усі ігри</h2>
         <div class="game-grid" data-games></div>
-        <p class="disclaimer">
-          Ігри завантажуються у демонстраційному режимі Pragmatic Play і працюють
-          на власному демо-балансі. Монети профілю — віртуальні, без виведення.
-        </p>
       </section>
 
       <aside class="side">
-        <h2 class="section-title">Лідери</h2>
-        <ol class="leaderboard" data-leaderboard></ol>
+        <h2 class="section-title">Нещодавно грали</h2>
+        <ul class="recent" data-recent></ul>
+        <p class="recent-empty" data-recent-empty>Тут з'являться ігри, які ти відкривав.</p>
       </aside>
     </div>
   </main>
 
-  <!-- game overlay -->
   <div class="overlay" data-game-overlay hidden>
     <div class="overlay-bar">
       <span class="overlay-title" data-game-title></span>
@@ -90,17 +81,9 @@
     </div>
   </div>
 
-  <!-- coin store -->
-  <div class="modal" data-store hidden>
-    <div class="modal-card">
-      <button class="modal-close" data-close-store>✕</button>
-      <h2>Магазин монет</h2>
-      <p class="modal-sub">Демо-режим: платіжка не підключена, монети нараховуються одразу.</p>
-      <div class="packs" data-packs></div>
-    </div>
-  </div>
-
-  <div class="toast" data-toast hidden></div>
+  <footer class="footer">
+    Розважальний демонстраційний проєкт. Гра на реальні гроші відсутня.
+  </footer>
 
   <script src="app.js" type="module"></script>
 </body>
