@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sugar Rush Social</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍭</text></svg>">
+</head>
+<body>
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">🍭</span>
+      <span class="brand-name">Sugar Rush Social</span>
+      <span class="brand-badge">PLAY&nbsp;MONEY</span>
+    </div>
+
+    <div class="topbar-right">
+      <div class="level" title="Рівень">
+        <span class="level-num" data-level>1</span>
+        <div class="level-bar"><i data-xp-fill style="width:0%"></i></div>
+      </div>
+      <button class="coins" data-open-store title="Магазин монет">
+        <span class="coin-icon">🪙</span>
+        <span class="coin-amount" data-coins>0</span>
+        <span class="coin-plus">+</span>
+      </button>
+      <button class="bonus-btn" data-claim-bonus hidden>
+        <span class="bonus-spark">🎁</span> Забрати бонус
+      </button>
+    </div>
+  </header>
+
+  <main class="lobby">
+    <section class="hero" data-hero hidden>
+      <div class="hero-copy">
+        <span class="hero-kicker">Гра тижня</span>
+        <h1 class="hero-title">Sweet&nbsp;Bonanza</h1>
+        <p class="hero-text">
+          Сітка 6×5, каскадні виграші та множники до 100x. Виграшні комбінації
+          зникають, нові символи падають зверху — і серія не зупиняється, поки
+          є виграші.
+        </p>
+        <div class="hero-stats">
+          <div><b>96.51%</b><span>RTP</span></div>
+          <div><b>21 100x</b><span>Макс. виграш</span></div>
+          <div><b>Висока</b><span>Волатильність</span></div>
+        </div>
+        <button class="play-btn" data-play="sweet-bonanza">Грати безкоштовно</button>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span style="--d:0s">🍓</span><span style="--d:.4s">🍇</span><span style="--d:.8s">🍉</span>
+        <span style="--d:1.2s">🍬</span><span style="--d:1.6s">🍭</span><span style="--d:2s">🍌</span>
+      </div>
+    </section>
+
+    <div class="lobby-body">
+      <section class="games">
+        <h2 class="section-title">Усі ігри</h2>
+        <div class="game-grid" data-games></div>
+        <p class="disclaimer">
+          Ігри завантажуються у демонстраційному режимі Pragmatic Play і працюють
+          на власному демо-балансі. Монети профілю — віртуальні, без виведення.
+        </p>
+      </section>
+
+      <aside class="side">
+        <h2 class="section-title">Лідери</h2>
+        <ol class="leaderboard" data-leaderboard></ol>
+      </aside>
+    </div>
+  </main>
+
+  <!-- game overlay -->
+  <div class="overlay" data-game-overlay hidden>
+    <div class="overlay-bar">
+      <span class="overlay-title" data-game-title></span>
+      <div class="overlay-actions">
+        <button data-fullscreen title="На весь екран">⛶</button>
+        <button data-close-game title="Закрити">✕</button>
+      </div>
+    </div>
+    <div class="overlay-frame">
+      <div class="frame-loader" data-frame-loader><span></span>Завантаження гри…</div>
+      <iframe data-game-frame title="Game" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- coin store -->
+  <div class="modal" data-store hidden>
+    <div class="modal-card">
+      <button class="modal-close" data-close-store>✕</button>
+      <h2>Магазин монет</h2>
+      <p class="modal-sub">Демо-режим: платіжка не підключена, монети нараховуються одразу.</p>
+      <div class="packs" data-packs></div>
+    </div>
+  </div>
+
+  <div class="toast" data-toast hidden></div>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
