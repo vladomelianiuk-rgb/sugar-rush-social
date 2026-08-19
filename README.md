@@ -30,6 +30,13 @@ Then open http://localhost:4000
 - A webview-style back/home bar floating over the game, so there is always a way out
 - Seven UI languages (English, Ukrainian, Spanish, Portuguese, German, Polish,
   Turkish) behind a switcher in the header
+- Privacy Policy and Terms of Use pages, linked from the footer
+
+The legal pages are English-only: the switcher translates their footer links but
+not their bodies, because machine-translating legal wording into six more
+languages multiplies the chance of a subtly wrong clause. Both still carry a
+visible placeholder for the operator's identity, contact address and governing
+law — fill those in before treating the pages as final.
 
 English is the default on every first visit; an explicit choice is remembered in
 `localStorage`. The browser's own language is deliberately not sniffed, so the
