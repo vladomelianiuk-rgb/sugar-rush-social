@@ -21,4 +21,8 @@ if tag not in s:
     p.write_text(s.replace('<head>', '<head>\n' + tag, 1))
 PY
 
+# GitHub Pages runs Jekyll, which drops directories starting with an
+# underscore -- and Expo puts the bundle in _expo. This file turns Jekyll off.
+touch "$root/docs/.nojekyll"
+
 echo "Exported to docs/app — commit and push to publish."
